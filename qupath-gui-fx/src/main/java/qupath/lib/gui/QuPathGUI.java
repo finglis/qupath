@@ -233,7 +233,7 @@ public class QuPathGUI {
 	private ObjectProperty<QuPathViewer> viewerProperty = new SimpleObjectProperty<>();
 	private StringBinding titleBinding;
 
-	private BooleanProperty readOnlyProperty = new SimpleBooleanProperty(false);
+    private BooleanProperty readOnlyProperty = new SimpleBooleanProperty("true".equals(System.getProperty("qupath.readOnly", "false")));
 	private BooleanProperty showAnalysisPane = new SimpleBooleanProperty(true);
 		
 	private BooleanBinding noProject = projectProperty.isNull();

@@ -15,6 +15,9 @@ application {
     val qupathAppName = gradle.extra["qupath.app.name"] as String
 
     applicationName = qupathAppName
+
+    applicationDefaultJvmArgs += "-Dqupath.readOnly=true"
+
     applicationDefaultJvmArgs += getDefaultJvmArgs()
 
     // Necessary when using ./gradlew run to support style manager to change themes
@@ -34,7 +37,6 @@ application {
     // See https://github.com/controlsfx/controlsfx/issues/1505
     applicationDefaultJvmArgs += "--add-opens"
     applicationDefaultJvmArgs += "javafx.base/com.sun.javafx.event=ALL-UNNAMED"
-
 }
 
 fun getDefaultJvmArgs(): List<String> {
